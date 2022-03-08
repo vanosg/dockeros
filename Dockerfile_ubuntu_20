@@ -1,0 +1,9 @@
+from ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get -y install tcl tcl-dev openssl libssl-dev tar wget make git
+RUN git clone https://github.com/eggheads/eggdrop eggdropgit
+WORKDIR eggdropgit
+RUN ./configure && make config && make && make install
+WORKDIR ~/eggdrop
+COPY entrypoint.sh ~/eggdrop
