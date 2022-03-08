@@ -15,4 +15,5 @@ jobs:
       run: docker run -t --name eggfoo eggdrop:ubuntu20
     - name: dunno
       run: cat pid.LamestBot
+    - name: Death to eggs
       run: killall eggdrop
