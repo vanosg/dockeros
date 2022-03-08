@@ -7,3 +7,4 @@ WORKDIR eggdropgit
 RUN ./configure && make config && make && make install
 WORKDIR ~/eggdrop
 COPY entrypoint.sh ~/eggdrop
+CMD entrypoint.sh
