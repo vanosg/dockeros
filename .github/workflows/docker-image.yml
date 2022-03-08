@@ -1,0 +1,15 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: pwd
+    - run: ls
+    - run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
