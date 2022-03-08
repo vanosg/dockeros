@@ -7,4 +7,5 @@ WORKDIR eggdropgit
 RUN ./configure && make config && make && make install
 WORKDIR ~/eggdrop
 COPY entrypoint.sh ~/eggdrop
+RUN echo "utimer 5 die" >> ~/eggdrop
 CMD entrypoint.sh
