@@ -11,5 +11,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: pwd
-    - run: echo ${GITHUB_WORKSPACE}
+    - run: ls
     - run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
