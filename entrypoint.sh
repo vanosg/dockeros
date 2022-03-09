@@ -13,7 +13,7 @@ echo "hello"
 exec ./eggdrop -tm eggdrop.conf
 sleep 2
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
-    cat /home/user/eggdrop/pid.Lamestbot
+    echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)"
 else
-    echo "Not running!"
+    echo "-=| TEST: PID: Not running!"
 fi
