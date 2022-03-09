@@ -13,7 +13,7 @@ jobs:
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
     - name: Run Docker image
       run: docker run -di --name eggfoo eggdrop:ubuntu20
-    - name: dunno
-      run: cat pid.LamestBot
+    - name: Is it running?
+      run: if [ -a /home/user/eggdrop/pid.Lamestbot ]; then cat /home/user/eggdrop/pid.Lamestbot; else echo "Not running!"; fi
     - name: Death to eggs
       run: docker stop $(docker ps -q)
