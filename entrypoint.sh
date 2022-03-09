@@ -11,4 +11,9 @@ sed -i -e '/edit your config file completely like you were told/d' \
 echo "utimer 5 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -tm eggdrop.conf
-cat ~/eggdrop/pid.LamestBot
+sleep 2
+if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
+    cat /home/user/eggdrop/pid.Lamestbot
+else
+    echo "Not running!"
+fi
