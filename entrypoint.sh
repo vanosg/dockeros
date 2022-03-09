@@ -3,7 +3,7 @@ set -e
 
 if [ "$(id -u)" = '0' ]; then
   chown -R user /home/user/eggdrop .
-  exec su-exec user "$BASH_SOURCE" "$@"
+  exec su user "$BASH_SOURCE" "$@"
 fi
 
 sed -i -e '/edit your config file completely like you were told/d' \
