@@ -8,7 +8,7 @@ fi
 
 sed -i -e '/edit your config file completely like you were told/d' \
        -e '/Please make sure you edit your config file completely/d' eggdrop.conf
-echo "listen 3333 all" >> eggdrop.conf
+echo "listen 127.0.0.1 3333 all" >> eggdrop.conf
 echo "utimer 5 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -tm eggdrop.conf
