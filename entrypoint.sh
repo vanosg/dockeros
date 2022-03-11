@@ -8,11 +8,10 @@ fi
 
 sed -i -e '/edit your config file completely like you were told/d' \
        -e '/Please make sure you edit your config file completely/d' eggdrop.conf
-#echo "utimer 5 die" >> eggdrop.conf
-#echo "after 5000 die" >> eggdrop.conf
+echo "listen 3333 all" >> eggdrop.conf
+echo "utimer 5 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -tm eggdrop.conf
-sleep 2
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
     echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)" > /data/pidtest
 else

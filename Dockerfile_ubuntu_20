@@ -8,7 +8,6 @@ WORKDIR eggdropgit
 RUN ./configure && make config && make && make install DEST=/home/user/eggdrop
 WORKDIR /home/user/eggdrop
 COPY entrypoint.sh /home/user/eggdrop
-RUN echo "utimer 5 die" >> /home/user/eggdrop.conf
 RUN chown -R user:user /home/user/eggdrop
 RUN chmod +x /home/user/eggdrop/entrypoint.sh
 CMD /home/user/eggdrop/entrypoint.sh
