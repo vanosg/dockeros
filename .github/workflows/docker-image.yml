@@ -15,8 +15,8 @@ jobs:
       run: docker run -di -v ${GITHUB_WORKSPACE}:/data --publish 3333:3333 --name eggfoo eggdrop:ubuntu20
     - name: omgwhy
       run: sleep 3
-    - name: telnet
-      run: bash -c '{ echo "testuser1"; echo "eggdrop"; sleep 2; echo "die";} | telnet 127.0.0.1 3333'
+#    - name: telnet
+#      run: bash -c '{ echo "testuser1"; echo "eggdrop"; sleep 2; echo "die";} | telnet 127.0.0.1 3333'
     - name: Verify PID file exists
       run: cat ${GITHUB_WORKSPACE}/pidtest
     - name: Death to eggs
