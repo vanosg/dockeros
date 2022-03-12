@@ -12,7 +12,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
     - name: Run Docker image
-      run: docker run -di -v ${GITHUB_WORKSPACE}:/data --name eggfoo eggdrop:ubuntu20
+      run: docker run -di -v ${GITHUB_WORKSPACE}:/data --publish 3333:3333 --name eggfoo eggdrop:ubuntu20
     - name: omg why
       run: sleep 3
     - name: telnet
