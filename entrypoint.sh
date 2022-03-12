@@ -13,6 +13,7 @@ echo "set userfile eggdrop.user" >> eggdrop.conf
 #echo "utimer 10 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -m eggdrop.conf
+ls -al /eggdata
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
     echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)" > /eggdata/pidtest
 else
