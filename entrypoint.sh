@@ -14,9 +14,10 @@ echo "set pidfile /eggdata/pid.Lamestbot"
 #echo "utimer 10 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -m eggdrop.conf
+sleep 1
 ls -al /eggdata
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
-    echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)" > /eggdata/pidtest
+    echo "-=| TEST: PID: $(cat /eggdata/pid.Lamestbot)" > /eggdata/pidtest
 else
     echo "-=| TEST: PID: Not running!" > /eggdata/pidtest
 fi
