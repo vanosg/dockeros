@@ -18,6 +18,6 @@ jobs:
 #    - name: telnet
 #      run: bash -c '{ echo "testuser1"; echo "eggdrop"; sleep 2; echo "die";} | telnet 127.0.0.1 3333'
     - name: Verify PID file exists
-      run: cat ${GITHUB_WORKSPACE}/pidtest
+      run: ls -al ${GITHUB_WORKSPACE}; cat ${GITHUB_WORKSPACE}/pid.Lamestbot
     - name: Death to eggs
       run: docker stop $(docker ps -q)
