@@ -8,9 +8,9 @@ fi
 
 sed -i -e '/edit your config file completely like you were told/d' \
        -e '/Please make sure you edit your config file completely/d' eggdrop.conf
-echo "listen 127.0.0.1 3333 all" >> eggdrop.conf
+echo "listen 0.0.0.0 3333 all" >> eggdrop.conf
 echo "set userfile eggdrop.user" >> eggdrop.conf
-echo "utimer 10 die" >> eggdrop.conf
+#echo "utimer 10 die" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -tm eggdrop.conf
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
