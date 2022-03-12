@@ -14,7 +14,7 @@ jobs:
     - name: Run Docker image
       run: docker run -di -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggfoo eggdrop:ubuntu20
     - name: zmpggg
-      run docker exec -ti eggfoo bash -c "ls -al /eggdata; ls -al /home/user/eggdrop; grep pid.Lamestbot /home/user/eggdrop"
+      run: docker exec -ti eggfoo bash -c "ls -al /eggdata; ls -al /home/user/eggdrop; grep pid.Lamestbot /home/user/eggdrop"
     - name: omgwhy
       run: sleep 4; ls -al ${GITHUB_WORKSPACE}
 #    - name: telnet
