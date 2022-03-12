@@ -1,0 +1,4 @@
+testuser1  - -
+--HOSTS -telnet!*@*
+--PASS2 $pbkdf2-SHA256$rounds=16000$YiZ8H4btDeCCmOX4W3QtcQ$HPsZMBWZQlKyIkvyN2Ou9LvBEJl6Hqt46QSeJ9HYSYk
+--XTRA created 1647045548
