@@ -14,7 +14,7 @@ echo "set userfile eggdrop.user" >> eggdrop.conf
 echo "hello"
 exec ./eggdrop -m eggdrop.conf
 if [ -a /home/user/eggdrop/pid.Lamestbot ]; then
-    echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)" > /data/pidtest
+    echo "-=| TEST: PID: $(cat /home/user/eggdrop/pid.Lamestbot)" > /eggdata/pidtest
 else
-    echo "-=| TEST: PID: Not running!" > /data/pidtest
+    echo "-=| TEST: PID: Not running!" > /eggdata/pidtest
 fi

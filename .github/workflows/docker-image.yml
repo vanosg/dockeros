@@ -12,9 +12,9 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
     - name: Run Docker image
-      run: docker run -di -v ${GITHUB_WORKSPACE}:/data --publish 3333:3333 --name eggfoo eggdrop:ubuntu20
+      run: docker run -di -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggfoo eggdrop:ubuntu20
     - name: omgwhy
-      run: sleep 3; ls /data
+      run: sleep 3; ls -al /eggdata
 #    - name: telnet
 #      run: bash -c '{ echo "testuser1"; echo "eggdrop"; sleep 2; echo "die";} | telnet 127.0.0.1 3333'
     - name: Verify PID file exists
