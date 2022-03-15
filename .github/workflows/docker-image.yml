@@ -12,7 +12,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_20 --tag eggdrop:ubuntu20
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggubun20 eggdrop:ubuntu20
+      run: docker run -ti -v ${GITHUB_WORKSPACE}:/eggdata --name eggubun20 eggdrop:ubuntu20
 
   Ubuntu_18_04:
     runs-on: ubuntu-latest
@@ -21,7 +21,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_18 --tag eggdrop:ubuntu18
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggubun18 eggdrop:ubuntu18
+      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --name eggubun18 eggdrop:ubuntu18
 
   Debian_Buster:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_debian_9 --tag eggdrop:debian9
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggdeb9 eggdrop:debian9
+      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --name eggdeb9 eggdrop:debian9
 
   Debian_Stretch:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_debian_10 --tag eggdrop:debian10
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggdeb10 eggdrop:debian10
+      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --name eggdeb10 eggdrop:debian10
 
   Debian_Bullseye:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_debian_11 --tag eggdrop:debian11
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggdeb11 eggdrop:debian11
+      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --name eggdeb11 eggdrop:debian11
 
   Debian_Sid:
     runs-on: ubuntu-latest
@@ -57,4 +57,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_debian_sid --tag eggdrop:debiansid
     - name: Run Docker image
-      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --publish 3333:3333 --name eggdebsid eggdrop:debiansid
+      run: docker run -i -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:debiansid
