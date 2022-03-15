@@ -13,5 +13,5 @@ echo "set userfile eggdrop.user" >> eggdrop.conf
 #echo "set pidfile \"/eggdata/pid.Lamestbot\"" >> eggdrop.conf
 echo "utimer 4 die" >> eggdrop.conf
 echo "hello"
-exec ./eggdrop -mt eggdrop.conf
+bash -c "./eggdrop -mt eggdrop.conf"
 sleep 1
