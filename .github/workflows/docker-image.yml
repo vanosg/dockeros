@@ -106,7 +106,7 @@ jobs:
 
   FreeBSD:
     runs-on: macos-10.15
-    name: A job to run test FreeBSD
+    name: FreeBSD
     steps:
     - uses: actions/checkout@v2
     - name: Test in FreeBSD
@@ -114,10 +114,12 @@ jobs:
       uses: vmactions/freebsd-vm@v0.1.5
       with:
         usesh: true
-        prepare: pkg install -y curl
+        prepare: pkg install -y git tcl86 gcc
         run: |
-          pwd
-          ls -lah
-          whoami
-          env
-          freebsd-version
+          git clone https://github.com/eggheads/eggdrop eggdropgit
+          cd eggdropgit
+          ./configure
+          make config
+          make
+          make install
+          cd ~/eggdrop
