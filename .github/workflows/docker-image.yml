@@ -103,3 +103,21 @@ jobs:
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_raw --tag eggdrop:fedoraraw
     - name: Run Docker image
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
+
+  FreeBSD:
+    runs-on: macos-10.15
+    name: A job to run test FreeBSD
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test in FreeBSD
+      id: test
+      uses: vmactions/freebsd-vm@v0.1.5
+      with:
+        usesh: true
+        prepare: pkg install -y curl
+        run: |
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
