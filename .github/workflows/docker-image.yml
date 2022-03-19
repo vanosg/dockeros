@@ -58,3 +58,48 @@ jobs:
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_debian_sid --tag eggdrop:debiansid
     - name: Run Docker image
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:debiansid
+
+  Centos_7:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_centos_7 --tag eggdrop:centos7
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:centos7
+
+  Fedora_34:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_34 --tag eggdrop:fedora34
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora34
+
+  Fedora_35:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_35 --tag eggdrop:fedora35
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora35
+
+  Fedora_36:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_36 --tag eggdrop:fedora36
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora36
+
+  Fedora_Rawhide:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_raw --tag eggdrop:fedoraraw
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
