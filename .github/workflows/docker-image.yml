@@ -123,6 +123,7 @@ jobs:
       uses: vmactions/freebsd-vm@v0.1.6
       with:
         usesh: true
+        sync: sshfs
         prepare: pkg install -y git tcl86 gcc
         run: |
           git clone https://github.com/eggheads/eggdrop eggdropgit
