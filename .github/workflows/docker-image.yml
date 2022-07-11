@@ -114,7 +114,7 @@ jobs:
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
 
   FreeBSD:
-    runs-on: macos-10.15
+    runs-on: macos-12
     name: FreeBSD
     steps:
     - uses: actions/checkout@v2
