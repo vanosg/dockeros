@@ -1,0 +1,14 @@
+from ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN adduser user
+RUN apt-get update && apt-get -y install tcl tcl-dev openssl libssl-dev tar wget make git
+RUN git clone https://github.com/eggheads/eggdrop eggdropgit
+WORKDIR eggdropgit
+RUN ./configure && make config && make && make install DEST=/home/user/eggdrop
+WORKDIR /home/user/eggdrop
+COPY entrypoint.sh /home/user/eggdrop
+COPY eggdrop.user /home/user/eggdrop
+RUN chown -R user:user /home/user/eggdrop
+RUN chmod +x /home/user/eggdrop/entrypoint.sh
+CMD /home/user/eggdrop/entrypoint.sh
