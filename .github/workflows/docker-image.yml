@@ -75,7 +75,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_centos_7 --tag eggdrop:centos7
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:centos7
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggcent7 eggdrop:centos7
 
   Fedora_34:
     runs-on: ubuntu-latest
@@ -84,7 +84,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_34 --tag eggdrop:fedora34
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora34
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggfed34 eggdrop:fedora34
 
   Fedora_35:
     runs-on: ubuntu-latest
@@ -93,7 +93,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_35 --tag eggdrop:fedora35
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora35
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggfed35 eggdrop:fedora35
 
   Fedora_36:
     runs-on: ubuntu-latest
@@ -102,7 +102,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_36 --tag eggdrop:fedora36
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedora36
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggfed36 eggdrop:fedora36
 
   Fedora_Rawhide:
     runs-on: ubuntu-latest
@@ -111,7 +111,16 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_fedora_raw --tag eggdrop:fedoraraw
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggfedraw eggdrop:fedoraraw
+
+  Opensuse_15.4:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_opensuse_15.4 --tag eggdrop:opensuse154
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggopensuse154 eggdrop:opensuse154
 
   Alpine_316:
     runs-on: alpine:3.16
@@ -120,7 +129,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_alpine_316 --tag eggdrop:alpine316
     - name: Run Docker image
-      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:alpine316
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggalpien316 eggdrop:alpine316
 
 
   FreeBSD:
