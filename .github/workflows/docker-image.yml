@@ -113,6 +113,16 @@ jobs:
     - name: Run Docker image
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
 
+  Alpine_316:
+    runs-on: alpine:3.16
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_alpine_316 --tag eggdrop:alpine316
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:alpine316
+
+
   FreeBSD:
     runs-on: macos-12
     name: FreeBSD
