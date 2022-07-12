@@ -1,36 +1,14 @@
-FROM alpine:3.16
-MAINTAINER Geo Van O <geo@eggheads.org>
+from alpine:3.16
 
-RUN adduser -S eggdrop
-
-# grab su-exec for easy step-down from root
-RUN apk add --no-cache 'su-exec>=0.2'
-
-RUN apk --update add --no-cache bash openssl tcl tcl-dev
-RUN apk --update add --no-cache --virtual egg-deps wget ca-certificates make tar gpgme build-base openssl-dev \
-  && wget "https://github.com/eggheads/eggdrop/archive/refs/heads/develop.tar.gz" -O develop.tar.gz \
-  && tar -zxf develop.tar.gz \
-  && rm develop.tar.gz \
-    && ( cd eggdrop-develop \
-    && ./configure \
-    && make config \
-    && make \
-    && make install DEST=/home/eggdrop/eggdrop ) \
-  && rm -rf eggdrop-develop \
-  && mkdir /home/eggdrop/eggdrop/data \
-  && chown -R eggdrop /home/eggdrop/eggdrop \
-  && apk del egg-deps
-
-ENV NICK=""
-ENV SERVER=""
-ENV LISTEN="3333"
-ENV OWNER=""
-ENV USERFILE="eggdrop.user"
-ENV CHANFILE="eggdrop.chan"
-
-WORKDIR /home/eggdrop/eggdrop
-EXPOSE 3333
-COPY entrypoint.sh /home/eggdrop/eggdrop
-
-ENTRYPOINT ["/home/eggdrop/eggdrop/entrypoint.sh"]
-CMD ["eggdrop.conf"]
+RUN addgroup -S user && adduser -S user -G user -s /bin/ash
+RUN apk --update add --no-cache bash openssl tcl tcl-dev git
+RUN apk --update add --no-cache --virtual egg-deps wget ca-certificates make tar gpgme build-base openssl-dev 
+RUN git clone https://github.com/eggheads/eggdrop eggdropgit
+WORKDIR eggdropgit
+RUN ./configure && make config && make && make install DEST=/home/user/eggdrop
+WORKDIR /home/user/eggdrop
+COPY entrypoint.sh /home/user/eggdrop
+COPY eggdrop.user /home/user/eggdrop
+RUN chown -R user:user /home/user/eggdrop
+RUN chmod +x /home/user/eggdrop/entrypoint.sh
+CMD /home/user/eggdrop/entrypoint.sh
