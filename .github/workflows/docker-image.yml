@@ -5,6 +5,15 @@ on:
     branches: [ main ]
 
 jobs:
+  Ubuntu_22_04:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file ${GITHUB_WORKSPACE}/Dockerfile_ubuntu_22 --tag eggdrop:ubuntu22
+    - name: Run Docker image
+      run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggubun20 eggdrop:ubuntu22
+
   Ubuntu_20_04:
     runs-on: ubuntu-latest
     steps:
@@ -105,15 +114,16 @@ jobs:
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggdebsid eggdrop:fedoraraw
 
   FreeBSD:
-    runs-on: macos-10.15
+    runs-on: macos-12
     name: FreeBSD
     steps:
     - uses: actions/checkout@v2
     - name: Test in FreeBSD
       id: test
-      uses: vmactions/freebsd-vm@v0.1.5
+      uses: vmactions/freebsd-vm@v0.1.6
       with:
         usesh: true
+        sync: sshfs
         prepare: pkg install -y git tcl86 gcc
         run: |
           git clone https://github.com/eggheads/eggdrop eggdropgit
