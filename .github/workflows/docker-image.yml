@@ -113,7 +113,7 @@ jobs:
     - name: Run Docker image
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggfedraw eggdrop:fedoraraw
 
-  Opensuse_15.4:
+  Opensuse_15_4:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
