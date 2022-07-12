@@ -123,7 +123,7 @@ jobs:
       run: docker run -dti -v ${GITHUB_WORKSPACE}:/eggdata --name eggopensuse154 eggdrop:opensuse154
 
   Alpine_316:
-    runs-on: alpine:3.16
+    runs-on: ubuntu:latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
